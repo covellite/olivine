@@ -12,8 +12,11 @@ img {
 }
 
 .olivine {
+	position: relative;
+	width: 800px;
 	.item-wrap {
 		position: relative;
+		margin: 0 50px;
 		width: 700px;
 		height: 200px;
 		overflow: hidden;
@@ -32,10 +35,14 @@ img {
 	}
 	.nav {
 		.prev {
-			
+			position: absolute;
+			top: 40%;
+			left: 10px;
 		}
 		.next {
-			
+			position: absolute;
+			top: 40%;
+			right: 10px;
 		}
 	}
 }

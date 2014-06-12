@@ -11,8 +11,13 @@ img {
   vertical-align: bottom;
 }
 
+.olivine {
+  position: relative;
+  width: 800px;
+}
 .olivine .item-wrap {
   position: relative;
+  margin: 0 50px;
   width: 700px;
   height: 200px;
   overflow: hidden;
@@ -25,4 +30,14 @@ img {
 .olivine .item-wrap .item li {
   width: 700px;
   float: left;
+}
+.olivine .nav .prev {
+  position: absolute;
+  top: 40%;
+  left: 10px;
+}
+.olivine .nav .next {
+  position: absolute;
+  top: 40%;
+  right: 10px;
 }
