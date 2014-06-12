@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: bottom
+}
+
+.olivine {
+	.item-wrap {
+		position: relative;
+		width: 700px;
+		height: 200px;
+		overflow: hidden;
+		.item {
+			position: absolute;
+			top: 0;
+			left: 0;
+			li {
+				width: 700px;
+				float: left;
+				a {
+					
+				}
+			}
+		}
+	}
+	.nav {
+		.prev {
+			
+		}
+		.next {
+			
+		}
+	}
+}
