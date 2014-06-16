@@ -1,11 +1,12 @@
-(function ($) {
+;(function ($) {
     'use strict';
 
     $.fn.olivine = function (o) {
         var d = {
-            speed: 100,
+            speed: 500,
             interval: 2000,
-            direction: 'left'
+            direction: 'left',
+            navClass: '.nav'
         },
             intervalID,
             elemItemWrap = $(this).find('.item-wrap'),
@@ -20,41 +21,35 @@
             fo = $.extend({}, d, o);
 
         function prev() {
-            $('.nav').hide();
+            var leftVal;
+
+            $(fo.navClass).hide();
             current = current - 1;
             if (current < 0) {
-                elemItem.animate({
-                    left: itemW * Math.abs(current) - (itemW * itemL)
-                },
-                    fo.speed, function () {
-                        $('.nav').show();
-                        if (current == -1) {
-                            elemItem.css('left', -(itemW * itemL * 2 - itemW));
-                            current = itemL - 1;
-                        }
-                    });
+                leftVal = itemW * Math.abs(current) - (itemW * itemL);
             } else {
-                elemItem.animate({
-                    left: -(itemW * current) - (itemW * itemL)
-                },
-                    fo.speed, function () {
-                        $('.nav').show();
-                        if (current == -1) {
-                            elemItem.css('left', -(itemW * itemL * 2 - itemW));
-                            current = itemL - 1;
-                        }
-                    });
+                leftVal = -(itemW * current) - (itemW * itemL);
             }
+            elemItem.animate({
+                left: leftVal
+            },
+                fo.speed, function () {
+                    $(fo.navClass).show();
+                    if (current == -1) {
+                        elemItem.css('left', -(itemW * itemL * 2 - itemW));
+                        current = itemL - 1;
+                    }
+                });
         }
 
         function next() {
-            $('.nav').hide();
+            $(fo.navClass).hide();
             current = current + 1;
             elemItem.animate({
                 left: -(itemW * current) - (itemW * itemL)
             },
                 fo.speed, function () {
-                    $('.nav').show();
+                    $(fo.navClass).show();
                     if (current == itemL) {
                         elemItem.css('left', -(itemW * itemL));
                         current = 0;
@@ -91,7 +86,7 @@
                     });
             }
 
-            elemPrev.bind('click', function(e) {
+            elemPrev.bind('click', function (e) {
                 prev();
                 clearInterval(intervalID);
                 if (fo.direction == 'left') {
@@ -103,7 +98,7 @@
                 e.preventDefault();
             });
 
-            elemNext.bind('click', function(e) {
+            elemNext.bind('click', function (e) {
                 next();
                 clearInterval(intervalID);
                 if (fo.direction == 'left') {
